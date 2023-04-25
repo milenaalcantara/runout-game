@@ -1,9 +1,6 @@
 //
 //  GameScene.swift
-//  Super Indie Runner
-//
-//  Created by Johannes Ruof on 24/02/2017.
-//  Copyright © 2017 Rume Academy. All rights reserved.
+//  Runout
 //
 
 import SpriteKit

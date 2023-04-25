@@ -11,7 +11,14 @@ class ScorePopupNode: PopupNode {
     var score: [String:Int]
     var scoreLabel: SKLabelNode!
     
-    init(buttonHandlerDelegate: PopupButtonHandlerDelegate, title: String, level: String, texture: SKTexture, score: Int, coins: Int, animated: Bool) {
+    init(
+        buttonHandlerDelegate: PopupButtonHandlerDelegate,
+        title: String,
+        level: String,
+        texture: SKTexture,
+        score: Int,
+        coins: Int,
+        animated: Bool) {
         self.level = level
         self.score = ScoreManager.getCurrentScore(for: level)
         

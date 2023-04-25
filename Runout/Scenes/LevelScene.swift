@@ -99,8 +99,15 @@ class LevelScene: SKScene {
         shadowLayer.zPosition = GameConstants.ZPositions.playerZ
         popupLayer.addChild(shadowLayer)
         
-        let levelKey = "Level_\(world!)-\(level)"
-        let levelPopup = ScorePopupNode(buttonHandlerDelegate: self, title: "\(world!)-\(level)", level: levelKey, texture: SKTexture(imageNamed: GameConstants.StringConstants.largePopup), score: ScoreManager.getCurrentScore(for: levelKey)[GameConstants.StringConstants.scoreScoreKey]!, coins: 4, animated: false)
+        let levelKey = "Level_\(level)" // Só temos 1 mundo
+        let levelPopup = ScorePopupNode(
+            buttonHandlerDelegate: self,
+            title: "\(level)",
+            level: levelKey,
+            texture: SKTexture(imageNamed: GameConstants.StringConstants.largePopup),
+            score: ScoreManager.getCurrentScore(for: levelKey)[GameConstants.StringConstants.scoreScoreKey]!,
+            coins: 4, animated: false
+        ) //\(world!)-
         levelPopup.add(buttons: [3,1])
         levelPopup.scale(to: frame.size, width: true, multiplier: 0.8)
         levelPopup.zPosition = GameConstants.ZPositions.hudZ
