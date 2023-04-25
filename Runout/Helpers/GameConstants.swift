@@ -33,10 +33,11 @@ struct GameConstants {
     }
     
     struct StringConstants {
-        static let gameName = "SUPER INDIE RUN"
+        static let gameName = "RUNOUT"
         static let groundTilesName = "Ground Tiles"
         static let worldBackgroundNames = ["CityBackground","DesertBackground", "GrassBackground"]
-        static let menuBackground = "MenuBackground"
+//        static let menuBackground = "MenuBackground"
+        static let menuBackground = "MenuCityBackground"
         static let foregroundLayer = "ForegroundLayer"
         static let playerName = "Player"
         static let playerImageName = "Idle_0"

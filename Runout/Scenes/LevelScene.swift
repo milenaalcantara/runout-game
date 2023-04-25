@@ -17,7 +17,8 @@ class LevelScene: SKScene {
     var sceneManagerDelegate: SceneManagerDelegate?
     
     override func didMove(to view: SKView) {
-        layoutScene(for: world)
+//        layoutScene(for: world)
+        createAndShowLevelPopup(for: 1) // indo direto pro nível 1 enquanto nao temos mais níveis
     }
     
     func layoutScene(for world: Int) {
