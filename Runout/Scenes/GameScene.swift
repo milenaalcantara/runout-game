@@ -63,7 +63,8 @@ class GameScene: SKScene {
     init(size: CGSize, world: Int, level: Int, sceneManagerDelegate: SceneManagerDelegate) {
         self.world = world
         self.level = level
-        self.levelKey = "Level_\(world)-\(level)"
+//        self.levelKey = "Level_\(world)-\(level)"
+        self.levelKey = "Level_\(level)"
         self.sceneManagerDelegate = sceneManagerDelegate
         super.init(size: size)
     }

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F387126D29F7666C00893D41 /* Level_1.sks in Resources */ = {isa = PBXBuildFile; fileRef = F387126C29F7666C00893D41 /* Level_1.sks */; };
+		F387126F29F766E700893D41 /* RunoutTileSet.sks in Resources */ = {isa = PBXBuildFile; fileRef = F387126E29F766E700893D41 /* RunoutTileSet.sks */; };
 		F3F9CA5C29F75B3B00F0CF3D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3F9CA5B29F75B3B00F0CF3D /* AppDelegate.swift */; };
 		F3F9CA6729F75B3B00F0CF3D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F3F9CA6529F75B3B00F0CF3D /* Main.storyboard */; };
 		F3F9CA6929F75B3B00F0CF3D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F3F9CA6829F75B3B00F0CF3D /* Assets.xcassets */; };
@@ -38,7 +40,6 @@
 		F3F9CB1D29F75E2300F0CF3D /* SKNode+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3F9CB1C29F75E2300F0CF3D /* SKNode+Extensions.swift */; };
 		F3F9CB2029F75E4A00F0CF3D /* TileSets.sks in Resources */ = {isa = PBXBuildFile; fileRef = F3F9CB1F29F75E4A00F0CF3D /* TileSets.sks */; };
 		F3F9CB2429F75E7B00F0CF3D /* MyActions.sks in Resources */ = {isa = PBXBuildFile; fileRef = F3F9CB2329F75E7B00F0CF3D /* MyActions.sks */; };
-		F3F9CB2929F75EAB00F0CF3D /* Level_0-1.sks in Resources */ = {isa = PBXBuildFile; fileRef = F3F9CB2529F75EAB00F0CF3D /* Level_0-1.sks */; };
 		F3F9CB2A29F75EAB00F0CF3D /* Level_1-2.sks in Resources */ = {isa = PBXBuildFile; fileRef = F3F9CB2629F75EAB00F0CF3D /* Level_1-2.sks */; };
 		F3F9CB2B29F75EAB00F0CF3D /* Level_1-3.sks in Resources */ = {isa = PBXBuildFile; fileRef = F3F9CB2729F75EAB00F0CF3D /* Level_1-3.sks */; };
 		F3F9CB2C29F75EAB00F0CF3D /* Level_1-1.sks in Resources */ = {isa = PBXBuildFile; fileRef = F3F9CB2829F75EAB00F0CF3D /* Level_1-1.sks */; };
@@ -67,6 +68,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		F387126C29F7666C00893D41 /* Level_1.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Level_1.sks; sourceTree = "<group>"; };
+		F387126E29F766E700893D41 /* RunoutTileSet.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = RunoutTileSet.sks; sourceTree = "<group>"; };
 		F3F9CA5829F75B3A00F0CF3D /* Runout.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Runout.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F3F9CA5B29F75B3B00F0CF3D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F3F9CA6629F75B3B00F0CF3D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -101,7 +104,6 @@
 		F3F9CB1C29F75E2300F0CF3D /* SKNode+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SKNode+Extensions.swift"; sourceTree = "<group>"; };
 		F3F9CB1F29F75E4A00F0CF3D /* TileSets.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = TileSets.sks; sourceTree = "<group>"; };
 		F3F9CB2329F75E7B00F0CF3D /* MyActions.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = MyActions.sks; sourceTree = "<group>"; };
-		F3F9CB2529F75EAB00F0CF3D /* Level_0-1.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = "Level_0-1.sks"; sourceTree = "<group>"; };
 		F3F9CB2629F75EAB00F0CF3D /* Level_1-2.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = "Level_1-2.sks"; sourceTree = "<group>"; };
 		F3F9CB2729F75EAB00F0CF3D /* Level_1-3.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = "Level_1-3.sks"; sourceTree = "<group>"; };
 		F3F9CB2829F75EAB00F0CF3D /* Level_1-1.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = "Level_1-1.sks"; sourceTree = "<group>"; };
@@ -160,11 +162,11 @@
 		F3F9CA5A29F75B3A00F0CF3D /* Runout */ = {
 			isa = PBXGroup;
 			children = (
-				F3F9CB2F29F75F0700F0CF3D /* Controller */,
 				F3F9CB2E29F75EDA00F0CF3D /* Application */,
+				F3F9CB1B29F75E1600F0CF3D /* Extensions */,
+				F3F9CB2F29F75F0700F0CF3D /* Controller */,
 				F3F9CB2129F75E6000F0CF3D /* Scenes */,
 				F3F9CB1E29F75E3F00F0CF3D /* Tiles */,
-				F3F9CB1B29F75E1600F0CF3D /* Extensions */,
 				F3F9CB1629F75DE100F0CF3D /* Layers */,
 				F3F9CB0529F75D9000F0CF3D /* Customs */,
 				F3F9CAFA29F75D3300F0CF3D /* Helpers */,
@@ -284,6 +286,7 @@
 		F3F9CB1E29F75E3F00F0CF3D /* Tiles */ = {
 			isa = PBXGroup;
 			children = (
+				F387126E29F766E700893D41 /* RunoutTileSet.sks */,
 				F3F9CB1F29F75E4A00F0CF3D /* TileSets.sks */,
 			);
 			path = Tiles;
@@ -312,7 +315,7 @@
 		F3F9CB2D29F75EB100F0CF3D /* Levels */ = {
 			isa = PBXGroup;
 			children = (
-				F3F9CB2529F75EAB00F0CF3D /* Level_0-1.sks */,
+				F387126C29F7666C00893D41 /* Level_1.sks */,
 				F3F9CB2829F75EAB00F0CF3D /* Level_1-1.sks */,
 				F3F9CB2629F75EAB00F0CF3D /* Level_1-2.sks */,
 				F3F9CB2729F75EAB00F0CF3D /* Level_1-3.sks */,
@@ -445,7 +448,8 @@
 				F3F9CAF829F75D2400F0CF3D /* BrakeSparkEmitter.sks in Resources */,
 				F3F9CA6729F75B3B00F0CF3D /* Main.storyboard in Resources */,
 				F3F9CB2029F75E4A00F0CF3D /* TileSets.sks in Resources */,
-				F3F9CB2929F75EAB00F0CF3D /* Level_0-1.sks in Resources */,
+				F387126F29F766E700893D41 /* RunoutTileSet.sks in Resources */,
+				F387126D29F7666C00893D41 /* Level_1.sks in Resources */,
 				F3F9CA6929F75B3B00F0CF3D /* Assets.xcassets in Resources */,
 				F3F9CB2B29F75EAB00F0CF3D /* Level_1-3.sks in Resources */,
 				F3F9CB2429F75E7B00F0CF3D /* MyActions.sks in Resources */,
@@ -685,8 +689,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UIStatusBarHidden = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -713,8 +716,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UIStatusBarHidden = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
