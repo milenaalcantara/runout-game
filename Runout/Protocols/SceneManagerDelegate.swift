@@ -7,7 +7,7 @@
 import Foundation
 
 protocol SceneManagerDelegate {
-    func presentLevelScene(for world: Int)
-    func presentGameScene(for level: Int, in world: Int)
+    func presentLevelScene()
+    func presentGameScene(for level: Int)
     func presentMenuScene()
 }

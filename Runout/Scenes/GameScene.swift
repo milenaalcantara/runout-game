@@ -11,7 +11,7 @@ enum GameState {
 
 class GameScene: SKScene {
     
-    var worldLayer: Layer!
+    var worldLayer: Layer = Layer()
     var backgroundLayer: RepeatingLayer!
     var foregroundLayer: RepeatingLayer!
     var mapNode: SKNode!
@@ -45,8 +45,6 @@ class GameScene: SKScene {
     
     var coins = 0
     var superCoins = 0
-    
-    var world: Int
     var level: Int
     var levelKey: String
     
@@ -57,10 +55,8 @@ class GameScene: SKScene {
     var hudDelegate: HUDDelegate?
     var sceneManagerDelegate: SceneManagerDelegate?
     
-    init(size: CGSize, world: Int, level: Int, sceneManagerDelegate: SceneManagerDelegate) {
-        self.world = world
+    init(size: CGSize, level: Int, sceneManagerDelegate: SceneManagerDelegate) {
         self.level = level
-//        self.levelKey = "Level_\(world)-\(level)"
         self.levelKey = "Level_\(level)"
         self.sceneManagerDelegate = sceneManagerDelegate
         super.init(size: size)
@@ -92,7 +88,7 @@ class GameScene: SKScene {
         addChild(backgroundLayer)
         
         for i in 0...1 {
-            let backgroundImage = SKSpriteNode(imageNamed: GameConstants.StringConstants.worldBackgroundNames[world])
+            let backgroundImage = SKSpriteNode(imageNamed: GameConstants.StringConstants.worldBackgroundNames) // Remover os outros
             backgroundImage.name = String(i)
             backgroundImage.scale(to: frame.size, width: false, multiplier: 1.0)
             backgroundImage.anchorPoint = CGPoint.zero
@@ -102,24 +98,24 @@ class GameScene: SKScene {
         
         backgroundLayer.layerVelocity = CGPoint(x: -100.0, y: 0.0)
         
-        if world == 1 {
-            
-            foregroundLayer = RepeatingLayer()
-            foregroundLayer.zPosition = GameConstants.ZPositions.hudZ
-            addChild(foregroundLayer)
-            
-            for i in 0...1 {
-                let foregroundImage = SKSpriteNode(imageNamed: GameConstants.StringConstants.foregroundLayer)
-                foregroundImage.name = String(i)
-                foregroundImage.scale(to: frame.size, width: false, multiplier: 1/15)
-                foregroundImage.anchorPoint = CGPoint.zero
-                foregroundImage.position = CGPoint(x: 0.0 + CGFloat(i) * foregroundImage.size.width, y: 0.0)
-                foregroundLayer.addChild(foregroundImage)
-            }
-            
-            foregroundLayer.layerVelocity = CGPoint(x: -300.0, y: 0.0)
-            
-        }
+//        if world == 1 {
+//
+//            foregroundLayer = RepeatingLayer()
+//            foregroundLayer.zPosition = GameConstants.ZPositions.hudZ
+//            addChild(foregroundLayer)
+//
+//            for i in 0...1 {
+//                let foregroundImage = SKSpriteNode(imageNamed: GameConstants.StringConstants.foregroundLayer)
+//                foregroundImage.name = String(i)
+//                foregroundImage.scale(to: frame.size, width: false, multiplier: 1/15)
+//                foregroundImage.anchorPoint = CGPoint.zero
+//                foregroundImage.position = CGPoint(x: 0.0 + CGFloat(i) * foregroundImage.size.width, y: 0.0)
+//                foregroundLayer.addChild(foregroundImage)
+//            }
+//
+//            foregroundLayer.layerVelocity = CGPoint(x: -300.0, y: 0.0)
+//
+//        }
         
         load(level: levelKey)
     }
@@ -332,7 +328,7 @@ class GameScene: SKScene {
         createAndShowPopup(type: 1, title: GameConstants.StringConstants.completedKey)
         
         if level < 9 {
-            let nextLevelKey = "Level_\(world)-\(level+1)_Unlocked"
+            let nextLevelKey = "Level_\(level+1)_Unlocked"
             UserDefaults.standard.set(true, forKey: nextLevelKey)
             UserDefaults.standard.synchronize()
         }
@@ -375,9 +371,9 @@ class GameScene: SKScene {
         if gameState == .ongoing {
             worldLayer.update(dt)
             backgroundLayer.update(dt)
-            if world == 1 {
-                foregroundLayer.update(dt)
-            }
+//            if world == 1 {
+//                foregroundLayer.update(dt)
+//            }
         }
     }
     
@@ -439,10 +435,10 @@ extension GameScene: PopupButtonHandlerDelegate {
             sceneManagerDelegate?.presentMenuScene()
         case 1:
             //Play
-            sceneManagerDelegate?.presentLevelScene(for: world)
+            sceneManagerDelegate?.presentLevelScene()
         case 2:
             //Retry
-            sceneManagerDelegate?.presentGameScene(for: level, in: world)
+            sceneManagerDelegate?.presentGameScene(for: level)
         case 3:
             //Cancel
             popup!.run(SKAction.fadeOut(withDuration: 0.2), completion: { 

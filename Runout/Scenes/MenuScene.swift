@@ -1,9 +1,6 @@
 //
 //  MenuScene.swift
-//  Super Indie Runner
-//
-//  Created by Johannes Ruof on 08/03/2017.
-//  Copyright © 2017 Rume Academy. All rights reserved.
+//  Runout
 //
 
 import SpriteKit
@@ -40,7 +37,7 @@ class MenuScene: SKScene {
     }
     
     func goToLevelScene(_: Int) {
-        sceneManagerDelegate?.presentLevelScene(for: 0)
+        sceneManagerDelegate?.presentLevelScene()
     }
     
 }

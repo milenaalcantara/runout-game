@@ -1,9 +1,6 @@
 //
 //  GameConstants.swift
-//  Super Indie Runner
-//
-//  Created by Johannes Ruof on 26/02/2017.
-//  Copyright © 2017 Rume Academy. All rights reserved.
+//  Runout
 //
 
 import Foundation
@@ -35,8 +32,7 @@ struct GameConstants {
     struct StringConstants {
         static let gameName = "RUNOUT"
         static let groundTilesName = "Ground Tiles"
-        static let worldBackgroundNames = ["CityBackground","DesertBackground", "GrassBackground"]
-//        static let menuBackground = "MenuBackground"
+        static let worldBackgroundNames = "CityBackground"
         static let menuBackground = "MenuCityBackground"
         static let foregroundLayer = "ForegroundLayer"
         static let playerName = "Player"

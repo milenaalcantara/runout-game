@@ -1,16 +1,11 @@
 //
 //  LevelScene.swift
-//  Super Indie Runner
-//
-//  Created by Johannes Ruof on 08/03/2017.
-//  Copyright © 2017 Rume Academy. All rights reserved.
+//  Runout
 //
 
 import SpriteKit
 
 class LevelScene: SKScene {
-
-    var world: Int!
     var level: Int!
     
     var popupLayer: SKNode!
@@ -22,7 +17,7 @@ class LevelScene: SKScene {
     }
     
     func layoutScene(for world: Int) {
-        let backgroundImage = SKSpriteNode(imageNamed: GameConstants.StringConstants.worldBackgroundNames[world])
+        let backgroundImage = SKSpriteNode(imageNamed: GameConstants.StringConstants.worldBackgroundNames)
         backgroundImage.scale(to: frame.size, width: false, multiplier: 1.0)
         backgroundImage.position = CGPoint(x: frame.midX, y: frame.midY)
         backgroundImage.zPosition = GameConstants.ZPositions.farBGZ
@@ -125,10 +120,10 @@ class LevelScene: SKScene {
             createAndShowLevelPopup(for: index)
         case 10:
             //Next World
-            sceneManagerDelegate?.presentLevelScene(for: world + 1)
+            sceneManagerDelegate?.presentLevelScene()
         case 11:
             //Previous
-            sceneManagerDelegate?.presentLevelScene(for: world - 1)
+            sceneManagerDelegate?.presentLevelScene()
         case 12:
             //Menu
             sceneManagerDelegate?.presentMenuScene()
@@ -150,7 +145,7 @@ extension LevelScene: PopupButtonHandlerDelegate {
             })
         case 1:
             //Play
-            sceneManagerDelegate?.presentGameScene(for: level, in: world)
+            sceneManagerDelegate?.presentGameScene(for: level)
         default:
             break
         }

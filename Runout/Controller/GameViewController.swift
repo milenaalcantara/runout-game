@@ -1,9 +1,6 @@
 //
 //  GameViewController.swift
-//  Super Indie Runner
-//
-//  Created by Johannes Ruof on 24/02/2017.
-//  Copyright © 2017 Rume Academy. All rights reserved.
+//  Runout
 //
 
 import UIKit
@@ -39,16 +36,15 @@ extension GameViewController: SceneManagerDelegate {
         present(scene: scene)
     }
     
-    func presentLevelScene(for world: Int) {
+    func presentLevelScene() {
         let scene = LevelScene(size: view.bounds.size)
         scene.scaleMode = .aspectFill
-        scene.world = world
         scene.sceneManagerDelegate = self
         present(scene: scene)
     }
     
-    func presentGameScene(for level: Int, in world: Int) {
-        let scene = GameScene(size: view.bounds.size, world: world, level: level, sceneManagerDelegate: self)
+    func presentGameScene(for level: Int) {
+        let scene = GameScene(size: view.bounds.size, level: level, sceneManagerDelegate: self)
         scene.scaleMode = .aspectFill
         present(scene: scene)
     }
