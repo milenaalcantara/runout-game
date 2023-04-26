@@ -241,7 +241,7 @@ class GameScene: SKScene {
         
         let pauseButton = SpriteKitButton(defaultButtonImage: GameConstants.StringConstants.pauseButton, action: buttonHandler, index: 0)
         pauseButton.scale(to: frame.size, width: false, multiplier: 0.1)
-        pauseButton.position = CGPoint(x: frame.midX, y: frame.maxY - pauseButton.size.height/1.9)
+        pauseButton.position = CGPoint(x: frame.midX, y: frame.maxY - pauseButton.size.height/0.9)
         pauseButton.zPosition = GameConstants.ZPositions.hudZ
         addChild(pauseButton)
     }

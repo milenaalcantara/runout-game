@@ -26,7 +26,7 @@ class ScorePopupNode: PopupNode {
         
         addScoreLabel()
         addStars()
-        addCoins(count: coins)
+//        addCoins(count: coins) // SuperStars
         
         if animated {
             animateResult(with: CGFloat(score), and: 100.0)
@@ -81,7 +81,7 @@ class ScorePopupNode: PopupNode {
         coin.position = CGPoint(x: -coin.size.width/1.5, y: frame.maxY - size.height*0.75)
         coin.zPosition = GameConstants.ZPositions.hudZ
         addChild(coin)
-        
+
         let coinLabel = SKLabelNode(fontNamed: GameConstants.StringConstants.gameFontName)
         coinLabel.verticalAlignmentMode = .center
         coinLabel.fontSize = 200.0
