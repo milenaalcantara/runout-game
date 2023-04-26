@@ -20,7 +20,8 @@ class MenuScene: SKScene {
         background.zPosition = GameConstants.ZPositions.farBGZ
         addChild(background)
         
-        let logoLabel = SKLabelNode(fontNamed: GameConstants.StringConstants.gameFontName)
+        let logoLabel = SKLabelNode()
+        logoLabel.fontName = GameConstants.StringConstants.gameFontName
         logoLabel.text = GameConstants.StringConstants.gameName
         logoLabel.fontSize = 200.0
         logoLabel.fontColor = UIColor.white

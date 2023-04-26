@@ -21,13 +21,15 @@ class PopupNode: SKSpriteNode {
         addChild(bannerLabel)
     }
     
-    func add(buttons: [Int]) {
+    // ["MenuButton","PlayButton","RetryButton","CancelButton"]
+    func add(buttons: [Int]) { // popup?.add(buttons: [0,3,2])
         let scalar = 1.0/CGFloat(buttons.count-1)
         for (index,button) in buttons.enumerated() {
             let buttonToAdd = SpriteKitButton(defaultButtonImage: GameConstants.StringConstants.popupButtonNames[button], action: buttonHandlerDelegate.popupButtonHandler, index: button)
             buttonToAdd.position = CGPoint(x: -frame.maxX/2 + CGFloat(index) * scalar * (frame.size.width*0.5), y: frame.minY)
             buttonToAdd.zPosition = GameConstants.ZPositions.hudZ
             buttonToAdd.scale(to: frame.size, width: true, multiplier: 0.25)
+            print("button \(button)")
             addChild(buttonToAdd)
         }
     }

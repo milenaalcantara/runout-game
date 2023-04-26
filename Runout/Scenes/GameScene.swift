@@ -67,6 +67,7 @@ class GameScene: SKScene {
     }
     
     override func didMove(to view: SKView) {
+        super.didMove(to: view)
         physicsWorld.contactDelegate = self
         physicsWorld.gravity = CGVector(dx: 0.0, dy: -6.0)
         
@@ -88,34 +89,14 @@ class GameScene: SKScene {
         addChild(backgroundLayer)
         
         for i in 0...1 {
-            let backgroundImage = SKSpriteNode(imageNamed: GameConstants.StringConstants.worldBackgroundNames) // Remover os outros
+            let backgroundImage = SKSpriteNode(imageNamed: GameConstants.StringConstants.worldBackgroundName)
             backgroundImage.name = String(i)
             backgroundImage.scale(to: frame.size, width: false, multiplier: 1.0)
             backgroundImage.anchorPoint = CGPoint.zero
             backgroundImage.position = CGPoint(x: 0.0 + CGFloat(i) * backgroundImage.size.width, y: 0.0)
             backgroundLayer.addChild(backgroundImage)
         }
-        
         backgroundLayer.layerVelocity = CGPoint(x: -100.0, y: 0.0)
-        
-//        if world == 1 {
-//
-//            foregroundLayer = RepeatingLayer()
-//            foregroundLayer.zPosition = GameConstants.ZPositions.hudZ
-//            addChild(foregroundLayer)
-//
-//            for i in 0...1 {
-//                let foregroundImage = SKSpriteNode(imageNamed: GameConstants.StringConstants.foregroundLayer)
-//                foregroundImage.name = String(i)
-//                foregroundImage.scale(to: frame.size, width: false, multiplier: 1/15)
-//                foregroundImage.anchorPoint = CGPoint.zero
-//                foregroundImage.position = CGPoint(x: 0.0 + CGFloat(i) * foregroundImage.size.width, y: 0.0)
-//                foregroundLayer.addChild(foregroundImage)
-//            }
-//
-//            foregroundLayer.layerVelocity = CGPoint(x: -300.0, y: 0.0)
-//
-//        }
         
         load(level: levelKey)
     }
@@ -184,7 +165,7 @@ class GameScene: SKScene {
     
     func brakeDescend() {
         brake = true
-        player.physicsBody!.velocity.dy = 0.0
+        player.physicsBody?.velocity.dy = 0.0
         
         if let sparky = ParticleHelper.addParticleEffect(name: GameConstants.StringConstants.brakeSparkEmitterKey, particlePositionRange: CGVector(dx: 30.0, dy: 30.0), position: CGPoint(x: player.position.x, y: player.position.y - player.size.height/2)) {
             sparky.zPosition = GameConstants.ZPositions.objectZ
@@ -260,19 +241,20 @@ class GameScene: SKScene {
         
         let pauseButton = SpriteKitButton(defaultButtonImage: GameConstants.StringConstants.pauseButton, action: buttonHandler, index: 0)
         pauseButton.scale(to: frame.size, width: false, multiplier: 0.1)
-        pauseButton.position = CGPoint(x: frame.midX, y: frame.maxY - pauseButton.size.height/1.9)
+        pauseButton.position = CGPoint(x: frame.midX, y: frame.maxY - pauseButton.size.height/0.9)
         pauseButton.zPosition = GameConstants.ZPositions.hudZ
         addChild(pauseButton)
     }
     
     func createAndShowPopup(type: Int, title: String) {
         switch type {
+        // ["MenuButton","PlayButton","RetryButton","CancelButton"]
         case 0:
             popup = PopupNode(withTitle: title, and: SKTexture(imageNamed: GameConstants.StringConstants.smallPopup), buttonHandlerDelegate: self)
-            popup!.add(buttons: [0,3,2])
+            popup?.add(buttons: [0,3,2])
         default:
             popup = ScorePopupNode(buttonHandlerDelegate: self, title: title, level: levelKey, texture: SKTexture(imageNamed: GameConstants.StringConstants.largePopup), score: coins, coins: superCoins, animated: true)
-            popup!.add(buttons: [2,1,0])
+            popup?.add(buttons: [2,1,0])
         }
         
         popup!.position = CGPoint(x: frame.midX, y: frame.midY)
@@ -327,11 +309,12 @@ class GameScene: SKScene {
         ScoreManager.compare(scores: [scores], in: levelKey)
         createAndShowPopup(type: 1, title: GameConstants.StringConstants.completedKey)
         
-        if level < 9 {
-            let nextLevelKey = "Level_\(level+1)_Unlocked"
-            UserDefaults.standard.set(true, forKey: nextLevelKey)
-            UserDefaults.standard.synchronize()
-        }
+        // Lógica para próximo nível
+//        if level < 3 {
+//            let nextLevelKey = "Level_\(level+1)_Unlocked"
+//            UserDefaults.standard.set(true, forKey: nextLevelKey)
+//            UserDefaults.standard.synchronize()
+//        }
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -371,9 +354,6 @@ class GameScene: SKScene {
         if gameState == .ongoing {
             worldLayer.update(dt)
             backgroundLayer.update(dt)
-//            if world == 1 {
-//                foregroundLayer.update(dt)
-//            }
         }
     }
     
@@ -441,10 +421,10 @@ extension GameScene: PopupButtonHandlerDelegate {
             sceneManagerDelegate?.presentGameScene(for: level)
         case 3:
             //Cancel
-            popup!.run(SKAction.fadeOut(withDuration: 0.2), completion: { 
-                self.popup!.removeFromParent()
+            popup?.run(SKAction.fadeOut(withDuration: 0.2), completion: {
+                self.popup?.removeFromParent()
                 self.gameState = .ongoing
-            })
+            }) // Remove o popup
         default:
             break
         }

@@ -32,7 +32,7 @@ struct GameConstants {
     struct StringConstants {
         static let gameName = "RUNOUT"
         static let groundTilesName = "Ground Tiles"
-        static let worldBackgroundNames = "CityBackground"
+        static let worldBackgroundName = "CityBackground"
         static let menuBackground = "MenuCityBackground"
         static let foregroundLayer = "ForegroundLayer"
         static let playerName = "Player"
@@ -44,7 +44,7 @@ struct GameConstants {
         static let coinImageName = "gold0"
         static let superCoinImageName = "SuperCoin"
         static let superCoinNames = ["Super1","Super2","Super3"]
-        static let gameFontName = "Unanimous Inverted -BRK-"
+        static let gameFontName = "Xilosa"
         static let playButton = "PlayButton"
         static let retryButton = "RetryButton"
         static let menuButton = "MenuButton"
@@ -69,11 +69,11 @@ struct GameConstants {
         
         static let playerIdleAtlas = "Player Idle Atlas"
         static let playerRunAtlas = "Player Run Atlas"
-        static let playerJumpAtlas = "Player Jump Atlas"
+        static let playerJumpAtlas = "Player Run Atlas" // Player Jump Atlas
         static let playerDieAtlas = "Player Die Atlas"
         static let idlePrefixKey = "Idle_"
         static let runPrefixKey = "Run_"
-        static let jumpPrefixKey = "Jump_"
+        static let jumpPrefixKey = "Run_" //Jump_
         static let diePrefixKey = "Die_"
         static let coinRotateAtlas = "Coin Rotate Atlas"
         static let coinPrefixKey = "gold"
@@ -87,16 +87,3 @@ struct GameConstants {
     }
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
