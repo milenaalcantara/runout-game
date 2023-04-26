@@ -44,7 +44,7 @@ struct GameConstants {
         static let coinImageName = "gold0"
         static let superCoinImageName = "SuperCoin"
         static let superCoinNames = ["Super1","Super2","Super3"]
-        static let gameFontName = "Unanimous Inverted -BRK-"
+        static let gameFontName = "Xilosa"
         static let playButton = "PlayButton"
         static let retryButton = "RetryButton"
         static let menuButton = "MenuButton"
