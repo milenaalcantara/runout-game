@@ -165,7 +165,7 @@ class GameScene: SKScene {
     
     func brakeDescend() {
         brake = true
-        player.physicsBody!.velocity.dy = 0.0
+        player.physicsBody?.velocity.dy = 0.0
         
         if let sparky = ParticleHelper.addParticleEffect(name: GameConstants.StringConstants.brakeSparkEmitterKey, particlePositionRange: CGVector(dx: 30.0, dy: 30.0), position: CGPoint(x: player.position.x, y: player.position.y - player.size.height/2)) {
             sparky.zPosition = GameConstants.ZPositions.objectZ

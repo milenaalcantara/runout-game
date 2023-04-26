@@ -69,11 +69,11 @@ struct GameConstants {
         
         static let playerIdleAtlas = "Player Idle Atlas"
         static let playerRunAtlas = "Player Run Atlas"
-        static let playerJumpAtlas = "Player Jump Atlas"
+        static let playerJumpAtlas = "Player Run Atlas" // Player Jump Atlas
         static let playerDieAtlas = "Player Die Atlas"
         static let idlePrefixKey = "Idle_"
         static let runPrefixKey = "Run_"
-        static let jumpPrefixKey = "Jump_"
+        static let jumpPrefixKey = "Run_" //Jump_
         static let diePrefixKey = "Die_"
         static let coinRotateAtlas = "Coin Rotate Atlas"
         static let coinPrefixKey = "gold"
@@ -87,16 +87,3 @@ struct GameConstants {
     }
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
