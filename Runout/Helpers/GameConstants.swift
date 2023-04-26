@@ -32,7 +32,7 @@ struct GameConstants {
     struct StringConstants {
         static let gameName = "RUNOUT"
         static let groundTilesName = "Ground Tiles"
-        static let worldBackgroundNames = "CityBackground"
+        static let worldBackgroundName = "CityBackground"
         static let menuBackground = "MenuCityBackground"
         static let foregroundLayer = "ForegroundLayer"
         static let playerName = "Player"

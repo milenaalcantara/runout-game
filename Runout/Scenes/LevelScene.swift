@@ -17,7 +17,7 @@ class LevelScene: SKScene {
     }
     
     func layoutScene(for world: Int) {
-        let backgroundImage = SKSpriteNode(imageNamed: GameConstants.StringConstants.worldBackgroundNames)
+        let backgroundImage = SKSpriteNode(imageNamed: GameConstants.StringConstants.worldBackgroundName)
         backgroundImage.scale(to: frame.size, width: false, multiplier: 1.0)
         backgroundImage.position = CGPoint(x: frame.midX, y: frame.midY)
         backgroundImage.zPosition = GameConstants.ZPositions.farBGZ
@@ -46,7 +46,7 @@ class LevelScene: SKScene {
             addChild(previousWorldButton)
         }
         
-        if world < GameConstants.StringConstants.worldBackgroundNames.count - 1 {
+        if world < GameConstants.StringConstants.worldBackgroundName.count - 1 {
             let nextWorldButton = SpriteKitButton(defaultButtonImage: GameConstants.StringConstants.playButton, action: buttonHandler, index: 10)
             nextWorldButton.scale(to: frame.size, width: false, multiplier: 0.075)
             nextWorldButton.position = CGPoint(x: frame.maxX - nextWorldButton.size.width/1.5, y: frame.maxY - titleLabel.frame.size.height)
@@ -103,6 +103,8 @@ class LevelScene: SKScene {
             score: ScoreManager.getCurrentScore(for: levelKey)[GameConstants.StringConstants.scoreScoreKey]!,
             coins: 4, animated: false
         ) //\(world!)-
+        print("abrindo modal do level 1")
+        // ["MenuButton","PlayButton","RetryButton","CancelButton"]
         levelPopup.add(buttons: [3,1])
         levelPopup.scale(to: frame.size, width: true, multiplier: 0.8)
         levelPopup.zPosition = GameConstants.ZPositions.hudZ
@@ -116,16 +118,16 @@ class LevelScene: SKScene {
     func buttonHandler(index: Int) {
         switch index {
         case 1,2,3,4,5,6,7,8,9:
-            //Level Buttons
+            // Level Buttons
             createAndShowLevelPopup(for: index)
         case 10:
-            //Next World
+            // Next World
             sceneManagerDelegate?.presentLevelScene()
         case 11:
-            //Previous
+            // Previous
             sceneManagerDelegate?.presentLevelScene()
         case 12:
-            //Menu
+            // Menu
             sceneManagerDelegate?.presentMenuScene()
         default:
             break
@@ -140,12 +142,16 @@ extension LevelScene: PopupButtonHandlerDelegate {
         switch index {
         case 3:
             //Cancel
+            
             popupLayer.run(SKAction.fadeOut(withDuration: 0.2), completion: { 
                 self.popupLayer.removeFromParent()
             })
+            // quando cancelar deve voltar para a tela de play, tela inicial
+            sceneManagerDelegate?.presentMenuScene() // volta pro menu
         case 1:
             //Play
             sceneManagerDelegate?.presentGameScene(for: level)
+            // Não deveria ser play e sim retry
         default:
             break
         }

@@ -33,7 +33,7 @@ class ScorePopupNode: PopupNode {
         } else {
             scoreLabel.text = "\(score)"
             for i in 0..<self.score[GameConstants.StringConstants.scoreStarsKey]! {
-                self[GameConstants.StringConstants.fullStarName + "_\(i)"].first!.alpha = 1.0
+                self[GameConstants.StringConstants.fullStarName + "_\(i)"].first?.alpha = 1.0
             }
         }
     }
