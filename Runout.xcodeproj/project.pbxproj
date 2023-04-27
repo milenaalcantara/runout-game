@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F31881BE29FA101300A70DE2 /* background.wav in Resources */ = {isa = PBXBuildFile; fileRef = F31881BD29FA101300A70DE2 /* background.wav */; };
+		F31881C529FA104000A70DE2 /* button.wav in Resources */ = {isa = PBXBuildFile; fileRef = F31881C029FA103F00A70DE2 /* button.wav */; };
+		F31881C629FA104000A70DE2 /* gameover.wav in Resources */ = {isa = PBXBuildFile; fileRef = F31881C129FA103F00A70DE2 /* gameover.wav */; };
+		F31881C729FA104000A70DE2 /* coin.wav in Resources */ = {isa = PBXBuildFile; fileRef = F31881C229FA103F00A70DE2 /* coin.wav */; };
+		F31881C829FA104000A70DE2 /* completed.wav in Resources */ = {isa = PBXBuildFile; fileRef = F31881C329FA104000A70DE2 /* completed.wav */; };
+		F31881C929FA104000A70DE2 /* powerup.wav in Resources */ = {isa = PBXBuildFile; fileRef = F31881C429FA104000A70DE2 /* powerup.wav */; };
 		F387126D29F7666C00893D41 /* Level_1.sks in Resources */ = {isa = PBXBuildFile; fileRef = F387126C29F7666C00893D41 /* Level_1.sks */; };
 		F387126F29F766E700893D41 /* RunoutTileSet.sks in Resources */ = {isa = PBXBuildFile; fileRef = F387126E29F766E700893D41 /* RunoutTileSet.sks */; };
 		F38A670929F961E100938579 /* xilosa_.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F38A670729F9519400938579 /* xilosa_.ttf */; };
@@ -69,6 +75,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		F31881BD29FA101300A70DE2 /* background.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = background.wav; sourceTree = "<group>"; };
+		F31881C029FA103F00A70DE2 /* button.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = button.wav; sourceTree = "<group>"; };
+		F31881C129FA103F00A70DE2 /* gameover.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = gameover.wav; sourceTree = "<group>"; };
+		F31881C229FA103F00A70DE2 /* coin.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = coin.wav; sourceTree = "<group>"; };
+		F31881C329FA104000A70DE2 /* completed.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = completed.wav; sourceTree = "<group>"; };
+		F31881C429FA104000A70DE2 /* powerup.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = powerup.wav; sourceTree = "<group>"; };
 		F387126C29F7666C00893D41 /* Level_1.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Level_1.sks; sourceTree = "<group>"; };
 		F387126E29F766E700893D41 /* RunoutTileSet.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = RunoutTileSet.sks; sourceTree = "<group>"; };
 		F38A670729F9519400938579 /* xilosa_.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = xilosa_.ttf; sourceTree = "<group>"; };
@@ -143,6 +155,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F31881BF29FA101700A70DE2 /* Audio */ = {
+			isa = PBXGroup;
+			children = (
+				F31881C029FA103F00A70DE2 /* button.wav */,
+				F31881C229FA103F00A70DE2 /* coin.wav */,
+				F31881C329FA104000A70DE2 /* completed.wav */,
+				F31881C129FA103F00A70DE2 /* gameover.wav */,
+				F31881C429FA104000A70DE2 /* powerup.wav */,
+				F31881BD29FA101300A70DE2 /* background.wav */,
+			);
+			path = Audio;
+			sourceTree = "<group>";
+		};
 		F3F9CA4F29F75B3A00F0CF3D = {
 			isa = PBXGroup;
 			children = (
@@ -203,6 +228,7 @@
 		F3F9CAE929F75C4600F0CF3D /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				F31881BF29FA101700A70DE2 /* Audio */,
 				F3F9CA6829F75B3B00F0CF3D /* Assets.xcassets */,
 				F3F9CAEB29F75C6000F0CF3D /* Fonts */,
 				F3F9CAEA29F75C5400F0CF3D /* Audios */,
@@ -454,16 +480,22 @@
 			files = (
 				F3F9CAF829F75D2400F0CF3D /* BrakeSparkEmitter.sks in Resources */,
 				F3F9CA6729F75B3B00F0CF3D /* Main.storyboard in Resources */,
+				F31881C529FA104000A70DE2 /* button.wav in Resources */,
 				F3F9CB2029F75E4A00F0CF3D /* TileSets.sks in Resources */,
 				F387126F29F766E700893D41 /* RunoutTileSet.sks in Resources */,
 				F387126D29F7666C00893D41 /* Level_1.sks in Resources */,
 				F3F9CA6929F75B3B00F0CF3D /* Assets.xcassets in Resources */,
 				F3F9CB2B29F75EAB00F0CF3D /* Level_1-3.sks in Resources */,
 				F3F9CB2429F75E7B00F0CF3D /* MyActions.sks in Resources */,
+				F31881C929FA104000A70DE2 /* powerup.wav in Resources */,
 				F3F9CB2C29F75EAB00F0CF3D /* Level_1-1.sks in Resources */,
 				F3F9CA6C29F75B3B00F0CF3D /* LaunchScreen.storyboard in Resources */,
 				F3F9CAF929F75D2400F0CF3D /* PowerupEmitter.sks in Resources */,
+				F31881BE29FA101300A70DE2 /* background.wav in Resources */,
+				F31881C629FA104000A70DE2 /* gameover.wav in Resources */,
 				F3F9CAF529F75D1A00F0CF3D /* CoinDustEmitter.sks in Resources */,
+				F31881C729FA104000A70DE2 /* coin.wav in Resources */,
+				F31881C829FA104000A70DE2 /* completed.wav in Resources */,
 				F38A670929F961E100938579 /* xilosa_.ttf in Resources */,
 				F3F9CB2A29F75EAB00F0CF3D /* Level_1-2.sks in Resources */,
 			);
