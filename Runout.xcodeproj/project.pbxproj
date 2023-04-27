@@ -73,6 +73,7 @@
 		F387126E29F766E700893D41 /* RunoutTileSet.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = RunoutTileSet.sks; sourceTree = "<group>"; };
 		F38A670729F9519400938579 /* xilosa_.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = xilosa_.ttf; sourceTree = "<group>"; };
 		F38A670829F953C200938579 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		F38A670A29F96D5800938579 /* RunoutRelease.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = RunoutRelease.entitlements; sourceTree = "<group>"; };
 		F3F9CA5829F75B3A00F0CF3D /* Runout.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Runout.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F3F9CA5B29F75B3B00F0CF3D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F3F9CA6629F75B3B00F0CF3D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -165,6 +166,7 @@
 		F3F9CA5A29F75B3A00F0CF3D /* Runout */ = {
 			isa = PBXGroup;
 			children = (
+				F38A670A29F96D5800938579 /* RunoutRelease.entitlements */,
 				F38A670829F953C200938579 /* Info.plist */,
 				F3F9CB2E29F75EDA00F0CF3D /* Application */,
 				F3F9CB1B29F75E1600F0CF3D /* Extensions */,
@@ -716,6 +718,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Runout/RunoutRelease.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 2P65JA735T;

@@ -9,6 +9,7 @@ class GameHUD: SKSpriteNode, HUDDelegate {
     
     var coinLabel: SKLabelNode
     var superCoinCounter: SKSpriteNode
+    var superCoinCount: Int = 3
     
     init(with size: CGSize) {
         coinLabel = SKLabelNode(fontNamed: GameConstants.StringConstants.gameFontName)
@@ -42,6 +43,11 @@ class GameHUD: SKSpriteNode, HUDDelegate {
             emptySlot.zPosition = GameConstants.ZPositions.hudZ
             superCoinCounter.addChild(emptySlot)
         }
+        
+        addSuperCoin(index: 0)
+        addSuperCoin(index: 1)
+        addSuperCoin(index: 2)
+        
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -53,13 +59,19 @@ class GameHUD: SKSpriteNode, HUDDelegate {
     }
     
     func removeSuperCoin(index: Int) {
-        let emptySlot = superCoinCounter[String(index)].last as! SKSpriteNode
+        let emptySlot = superCoinCounter[String(index)].first as! SKSpriteNode
         emptySlot.alpha = 0.5
+        if superCoinCount > 0 && superCoinCount <= 3 {
+            superCoinCount-=1
+        }
     }
     
     func addSuperCoin(index: Int) {
         let emptySlot = superCoinCounter[String(index)].first as! SKSpriteNode
         emptySlot.alpha = 1
+        if superCoinCount > 0 && superCoinCount < 3 {
+            superCoinCount+=1
+        }
     }
     
     

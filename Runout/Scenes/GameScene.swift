@@ -44,7 +44,7 @@ class GameScene: SKScene {
     var brake = false
     
     var coins = 0
-    var superCoins = 0
+    var superCoins = 3
     var level: Int
     var levelKey: String
     
@@ -127,7 +127,7 @@ class GameScene: SKScene {
     
     func addPlayer() {
         player = Player(imageNamed: GameConstants.StringConstants.playerImageName)
-        player.scale(to: frame.size, width: false, multiplier: 0.1)
+        player.scale(to: frame.size, width: false, multiplier: 0.15)
         player.name = GameConstants.StringConstants.playerName
         PhysicsHelper.addPhysicsBody(to: player, with: player.name!)
         player.position = CGPoint(x: frame.midX/2.0, y: frame.midY)
@@ -179,7 +179,22 @@ class GameScene: SKScene {
     
     func handleEnemyContact() {
         if player.invincible { return }
-        die(reason: 0)
+
+        superCoins-=1
+        
+        if superCoins == 0 {
+            die(reason: 0)
+        } else {
+            print(superCoins)
+            hudDelegate?.removeSuperCoin(index: superCoins)
+            player.run(
+                SKAction.sequence([
+                    SKAction.fadeOut(withDuration: 0.5),
+                    SKAction.fadeIn(withDuration: 0.5)
+                ])
+            )
+        }
+        
     }
     
     func pauseEnemies(bool: Bool) {
@@ -204,11 +219,9 @@ class GameScene: SKScene {
     
     func collectCoin(sprite: SKSpriteNode) {
         if GameConstants.StringConstants.superCoinNames.contains(sprite.name!) {
-            superCoins += 1
-            for index in 0..<3 {
-                if GameConstants.StringConstants.superCoinNames[index] == sprite.name! {
-                    hudDelegate?.addSuperCoin(index: index)
-                }
+            if superCoins < 3 {
+                hudDelegate?.addSuperCoin(index: superCoins)
+                superCoins += 1
             }
         } else {
             coins += 1
@@ -267,23 +280,25 @@ class GameScene: SKScene {
         run(soundPlayer.deathSound)
         gameState = .finished
         player.turnGravity(on: false)
-        let deathAnimation: SKAction!
-        switch reason {
-        case 0:
-            deathAnimation = SKAction.animate(with: player.dieFrames, timePerFrame: 0.1, resize: true, restore: true)
-        case 1:
-            let up = SKAction.moveTo(y: frame.midY, duration: 0.25)
-            let wait = SKAction.wait(forDuration: 0.1)
-            let down = SKAction.moveTo(y: -player.size.height, duration: 0.2)
-            deathAnimation = SKAction.sequence([up,wait,down])
-        default:
-            deathAnimation = SKAction.animate(with: player.dieFrames, timePerFrame: 0.1, resize: true, restore: true)
-        }
+//        let deathAnimation: SKAction!
+//        switch reason {
+//        case 0:
+//            deathAnimation = SKAction.animate(with: player.dieFrames, timePerFrame: 0.1, resize: true, restore: true)
+//        case 1:
+//            let up = SKAction.moveTo(y: frame.midY, duration: 0.25)
+//            let wait = SKAction.wait(forDuration: 0.1)
+//            let down = SKAction.moveTo(y: -player.size.height, duration: 0.2)
+//            deathAnimation = SKAction.sequence([up,wait,down])
+//        default:
+//            deathAnimation = SKAction.animate(with: player.dieFrames, timePerFrame: 0.1, resize: true, restore: true)
+//        }
+        player.removeFromParent()
+        createAndShowPopup(type: 1, title: GameConstants.StringConstants.failedKey)
         
-        player.run(deathAnimation) { 
-            self.player.removeFromParent()
-            self.createAndShowPopup(type: 1, title: GameConstants.StringConstants.failedKey)
-        }
+//        player.run(deathAnimation) {
+//            self.player.removeFromParent()
+//            self.createAndShowPopup(type: 1, title: GameConstants.StringConstants.failedKey)
+//        }
     }
     
     func finishGame() {

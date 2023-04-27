@@ -43,7 +43,7 @@ struct GameConstants {
         static let coinName = "Coin"
         static let coinImageName = "gold0"
         static let superCoinImageName = "SuperCoin"
-        static let superCoinNames = ["Super1","Super2","Super3"]
+        static let superCoinNames = "Super"
         static let gameFontName = "Xilosa"
         static let playButton = "PlayButton"
         static let retryButton = "RetryButton"
