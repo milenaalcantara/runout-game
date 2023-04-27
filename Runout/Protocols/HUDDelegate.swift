@@ -8,4 +8,5 @@ import Foundation
 protocol HUDDelegate {
     func updateCoinLabel(coins: Int)
     func addSuperCoin(index: Int)
+    func removeSuperCoin(index: Int)
 }
