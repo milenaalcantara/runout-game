@@ -14,16 +14,16 @@ class GameViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         presentMenuScene()
-//        startBackgroundMusic()
+        startBackgroundMusic()
     }
     
-//    func startBackgroundMusic() {
-//        let path = Bundle.main.path(forResource: "background", ofType: "wav")
-//        let url = URL(fileURLWithPath: path!)
-//        backgroundMusicPlayer = try! AVAudioPlayer(contentsOf: url)
-//        backgroundMusicPlayer.numberOfLoops = -1
-//        backgroundMusicPlayer.play()
-//    }
+    func startBackgroundMusic() {
+        let path = Bundle.main.path(forResource: "background", ofType: "wav")
+        let url = URL(fileURLWithPath: path!)
+        backgroundMusicPlayer = try! AVAudioPlayer(contentsOf: url)
+        backgroundMusicPlayer.numberOfLoops = -1
+        backgroundMusicPlayer.play()
+    }
 
 }
 
@@ -41,6 +41,8 @@ extension GameViewController: SceneManagerDelegate {
         scene.scaleMode = .aspectFill
         scene.sceneManagerDelegate = self
         present(scene: scene)
+        backgroundMusicPlayer.stop()
+        startBackgroundMusic()
     }
     
     func presentGameScene(for level: Int) {
