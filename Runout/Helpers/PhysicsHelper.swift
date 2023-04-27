@@ -27,6 +27,9 @@ class PhysicsHelper {
              _ where GameConstants.StringConstants.superCoinNames.contains(name):
             sprite.physicsBody = SKPhysicsBody(circleOfRadius: sprite.size.width/2)
             sprite.physicsBody!.categoryBitMask = GameConstants.PhysicsCategories.collectibleCategory
+            case GameConstants.StringConstants.holeName:
+            sprite.physicsBody = SKPhysicsBody(rectangleOf: sprite.size)
+            sprite.physicsBody!.categoryBitMask = GameConstants.PhysicsCategories.holeCategory
         default:
             sprite.physicsBody = SKPhysicsBody(rectangleOf: sprite.size)
         }

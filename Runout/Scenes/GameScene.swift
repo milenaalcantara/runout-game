@@ -280,25 +280,28 @@ class GameScene: SKScene {
         run(soundPlayer.deathSound)
         gameState = .finished
         player.turnGravity(on: false)
-//        let deathAnimation: SKAction!
-//        switch reason {
-//        case 0:
-//            deathAnimation = SKAction.animate(with: player.dieFrames, timePerFrame: 0.1, resize: true, restore: true)
-//        case 1:
-//            let up = SKAction.moveTo(y: frame.midY, duration: 0.25)
-//            let wait = SKAction.wait(forDuration: 0.1)
-//            let down = SKAction.moveTo(y: -player.size.height, duration: 0.2)
-//            deathAnimation = SKAction.sequence([up,wait,down])
-//        default:
-//            deathAnimation = SKAction.animate(with: player.dieFrames, timePerFrame: 0.1, resize: true, restore: true)
-//        }
-        player.removeFromParent()
-        createAndShowPopup(type: 1, title: GameConstants.StringConstants.failedKey)
+        let deathAnimation: SKAction!
+        switch reason {
+        case 0:
+                deathAnimation = SKAction.animate(with: player.runFrames, timePerFrame: 0.1, resize: true, restore: true)
+        case 1:
+            let up = SKAction.moveTo(y: frame.midY, duration: 0.25)
+            let wait = SKAction.wait(forDuration: 0.1)
+            let down = SKAction.moveTo(y: -player.size.height, duration: 0.2)
+            deathAnimation = SKAction.sequence([up,wait,down])
+        default:
+            deathAnimation = SKAction.animate(with: player.runFrames, timePerFrame: 0.1, resize: true, restore: true)
+        }
+
+        self.player.removeFromParent()
+        self.createAndShowPopup(type: 1, title: GameConstants.StringConstants.failedKey)
         
-//        player.run(deathAnimation) {
+//        player.run(deathAnimation, completion: {
 //            self.player.removeFromParent()
 //            self.createAndShowPopup(type: 1, title: GameConstants.StringConstants.failedKey)
-//        }
+//        })
+        
+        
     }
     
     func finishGame() {
@@ -403,6 +406,8 @@ extension GameScene: SKPhysicsContactDelegate {
         case GameConstants.PhysicsCategories.playerCategory | GameConstants.PhysicsCategories.collectibleCategory:
             let collectible = contact.bodyA.node?.name == player.name ? contact.bodyB.node as! SKSpriteNode : contact.bodyA.node as! SKSpriteNode
             handleCollectible(sprite: collectible)
+            case GameConstants.PhysicsCategories.playerCategory | GameConstants.PhysicsCategories.holeCategory:
+                die(reason: 1)
         default:
             break
         }

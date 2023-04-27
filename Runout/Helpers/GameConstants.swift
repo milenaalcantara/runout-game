@@ -18,6 +18,7 @@ struct GameConstants {
         static let enemyCategory: UInt32 = 0x1 << 4
         static let frameCategory: UInt32 = 0x1 << 5
         static let ceilingCategory: UInt32 = 0x1 << 6
+        static let holeCategory: UInt32 = 0x1 << 7
     }
 
     struct ZPositions {
@@ -40,6 +41,7 @@ struct GameConstants {
         static let groundNodeName = "GroundNode"
         static let finishLineName = "FinishLine"
         static let enemyName = "Enemy"
+        static let holeName = "Hole"
         static let coinName = "Coin"
         static let coinImageName = "gold0"
         static let superCoinImageName = "SuperCoin"
